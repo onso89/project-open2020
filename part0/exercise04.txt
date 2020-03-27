@@ -1,0 +1,50 @@
+title User Form Input Process
+
+note left of Browser: 
+    B1.User Inputs into text field & 
+    triggers submit event
+    end note
+
+note over Browser:
+    B2.Browser Triggers 
+    Main.js (form submit event)
+    that sends user input 
+    to the server address /new_note
+    end note
+    
+Browser->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+note right of Server:
+
+    S1.Triggers backend Server code
+    
+    { app.post('/new_note', (req, res) => {
+       // code for the server response
+    } } 
+    end note
+    
+note over Server:
+    S2.Server responds with
+    status code 302 (URL redirect)
+    { 
+      // other code...
+      res.redirect('/notes') 
+    }
+    end note
+    
+Server-->Browser: https://fullstack-exampleapp.herokuapp.com/note
+
+note over Browser:
+    Browser reloads notes page
+    end note
+
+note right of Browser:
+    Trigger 3 more HTTP Requests
+    end note
+    
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: main.css
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: main.js
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server-->Browser:  [{ content: "New Note from User", date: "2019-05-23" }, ...]
+
