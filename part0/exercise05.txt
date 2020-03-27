@@ -32,7 +32,7 @@ Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
 Server-->Browser: spa.js
 
 note over Browser:
-    The spa.js code executes  
+    B2. The spa.js code executes  
     fetching the notes as JSON format
     end note
 
@@ -40,12 +40,12 @@ Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
 Server-->Browser:  [{ content: "HTML is easy", date: "2019-05-23" }, ...]
 
 note over Browser:
-    The spa.js from now on
+    B3. The spa.js from now on
     is responsible for client-side rendering
     end note
 
 note right of Browser:
-    Browser trigger 3 more HTTP GET Requests
+    B4. Browser trigger 3 more HTTP GET Requests
     end note
     
 Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
