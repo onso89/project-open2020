@@ -1,0 +1,63 @@
+title User request to SPA page
+
+
+note over Browser:
+    B1.
+    Browser sends HTML GET request
+    to address .../spa
+    end note
+    
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+note right of Server:
+
+    S1.Triggers backend Server that
+    sends notes_spa page
+    
+    { app.post('/spa', (req, res) => {
+      res.send(notes_spa)
+    } } 
+    end note
+    
+Server-->Browser: https://fullstack-exampleapp.herokuapp.com/notes_spa
+    
+note left of Server:
+    S2 The notes_spa pages holds
+    the HTML script tag that triggers
+    the browser to fetch main.css, spa.js, data.json
+    end note
+    
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: main.css
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+Server-->Browser: spa.js
+
+note over Browser:
+    The spa.js code executes  
+    fetching the notes as JSON format
+    end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server-->Browser:  [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over Browser:
+    The spa.js from now on
+    is responsible for client-side rendering
+    end note
+
+note right of Browser:
+    Browser trigger 3 more HTTP GET Requests
+    end note
+    
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: main.css
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: main.js
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server-->Browser:  [{ content: "New Note from User", date: "2019-05-23" }, ...]
+
+
+
+
+
+
+
