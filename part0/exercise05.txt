@@ -44,18 +44,6 @@ note over Browser:
     is responsible for client-side rendering
     end note
 
-note right of Browser:
-    B4. Browser trigger 3 more HTTP GET Requests
-    end note
-    
-Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
-Server-->Browser: main.css
-Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
-Server-->Browser: main.js
-Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
-Server-->Browser:  [{ content: "New Note from User", date: "2019-05-23" }, ...]
-
-
 
 
 
