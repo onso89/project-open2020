@@ -1,0 +1,50 @@
+title User creates new note 
+
+
+note over Browser:
+    B1. User types input into 
+    form field & press submit button
+    end note
+    
+note over Browser:
+    B2. Browser side spa.js
+    executes event handling code
+    sending POST request in 
+    JSON data to /new_notes_spa
+    
+    {
+    xhttpForPost.send(JSON.stringify(note))
+    }
+    end note
+    
+Browser->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note right of Server:
+
+    S1.Server updates the notes list
+    and sends status code with message
+    end note
+    
+Server-->Browser: Status code 201 & message: 'note created'
+    
+note over Browser:
+   B3. Status code 201 triggers
+   client-side spa.js code
+    end note
+    
+note right of Browser:
+   B4. Browser re-renders the new
+   data from the list without
+   reloading the page
+    end note
+    
+
+
+
+    
+
+
+
+
+
+
+
